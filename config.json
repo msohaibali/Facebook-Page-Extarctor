@@ -1,0 +1,42 @@
+{
+    "LOGIN_CREDENTIALS": {
+        "USERNAME": "asdasdasd",
+        "PASSWORD": "123123",
+        "NAME": "Samha Crstina",
+        "DRIVER_TYPE": "CHROME",
+        "PROFILE": "Profile 1"
+    },
+    "BROWSER_PATH": "\\Google\\Chrome\\User Data\\",
+    "CHECK_LOGGED_IN_CLASS": "_aacl",
+    "HEADERS": {
+        "authority": "www.instagram.com",
+        "accept": "*/*",
+        "accept-language": "en-US,en;q=0.9",
+        "sec-ch-prefers-color-scheme": "light",
+        "sec-ch-ua": "'Google Chrome';v='107', 'Chromium';v='107', 'Not=A?Brand';v='24'",
+        "sec-ch-ua-mobile": "?0",
+        "sec-ch-ua-platform": "Windows",
+        "sec-fetch-dest": "empty",
+        "sec-fetch-mode": "cors",
+        "sec-fetch-site": "same-origin",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36"
+    },
+    "Paths": {
+        "FilesToBeProcessed": "C:\\Users\\DELL\\Desktop\\Sohaib\\FilesToBeProcessed\\PostMediaFiles",
+        "BasicInfo": "C:\\Users\\DELL\\Desktop\\Sohaib\\FilesToBeProcessed\\BasicInfoFiles"
+    },
+    "POSTS_DOC_ID": "3684142805040826",
+    "REACTORS_DOC_ID": "3425009180892287",
+    "COMMENTORS_DOC_ID": "3366415190090545",
+    "HOVER_DOC_ID": "3345023045577128",
+    "ABOUT_DOC_ID": "5990969724320084",
+    "FRIENDS_DOC_ID": "4751669571524879",
+    "IMAGES_PHOTOS_ALL_DOC_ID": "4431441300261521",
+    "POSTS_SIZE": "50",
+    "PHOTOS_LIMIT": 60,
+    "REACTORS_LIMIT": "200",
+    "COMMENTORS_LIMIT": "200",
+    "UK_SERVER": false,
+    "COMMENTS_VIA_INSTANCE": true,
+    "ACCESS_TOKEN": "1716660955257637%7Cafa3f38c55f24c73b177afc962969b15"
+}
