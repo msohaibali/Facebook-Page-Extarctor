@@ -1,13 +1,9 @@
 import json
-from Utils import Utils
 from About import About
+from Posts import Posts
 from colorama import Fore, init
 from datetime import datetime as dt
 
-
-# from BasicInfo import BasicInfo
-# from PostMedia import PostMedia
-# from ParseJson import ParseJson
 
 first_start = dt.now()
 init()
@@ -31,58 +27,37 @@ PHOTOS_LIMIT = config["PHOTOS_LIMIT"]
 ACCESS_TOKEN = config["ACCESS_TOKEN"]
 # CONFIGURATIONS
 
+page_id = "485559268138376"  # ARYNEWS
 
-session, driver, logged_in_user_id = Utils.get_session(config=config)
-userlist = ["https://www.facebook.com/arynewsasia/"]
-
-fb_dtsg = ""
-retries = 0
-
-page_id = Utils.id_from_url_page_id(userlist[0])
-
-while not fb_dtsg and retries < 3:
-    fb_dtsg = Utils.dtsg_grabber(driver)
-    if fb_dtsg:
-        print(
-            Fore.LIGHTBLUE_EX + "FB_Dtsg Grabbed Successfully  ::  " + fb_dtsg,
-        )
-    else:
-        print(Fore.YELLOW + "*** FB_Dtsg not found Retrying ***")
-        retries = retries + 1
-
-print("[*]  Grabbing Required Tokens")
-about_params = {}
-about_params = Utils.tokens_grabber(userlist[0], session)
-
-about_params["fb_dtsg"] = fb_dtsg
-about_params["user_id"] = logged_in_user_id
-print("[+]  Required Tokens Grabbed Successfully!")
-
-if not page_id:
-    print("[!]  No Page ID, Invalid Link")
-    exit()
-else:
-    if page_id.isdigit():
-        id_type = "NUMERIC_ID"
-        numeric_id = page_id
-    else:
-        id_type = "USERNAME"
-
-        # CALL Numeric_ID request
-        numeric_id = about_params["numeric_id"]
-
-    print(Fore.LIGHTGREEN_EX + "ID Type  :::  " + id_type)
 
 start = dt.now()
+
 # Grab About Data of Page
 about_response = About.page_about(
-    driver=driver,
-    page_link=userlist[0],
+    ABOUT_DOC_ID=config.get("ABOUT_DOC_ID"),
+    page_id=page_id,
 )
-with open("page_about.json", "w") as fl:
+with open(page_id + "_page_about.json", "w") as fl:
     json.dump(about_response, fl)
 end = dt.now()
 print(Fore.GREEN + "[+]  Time to Grab About  ::  " + str(end - start))
+
+
+start = dt.now()
+# Grab Page Posts
+posts_count = 10
+all_posts = Posts.get_posts(
+    page_id=page_id, posts_count=posts_count, POSTS_DOC_ID=config.get("POSTS_DOC_ID")
+)
+with open(page_id + "_page_posts.json", "w") as fl:
+    json.dump(all_posts, fl)
+end = dt.now()
+print(
+    Fore.GREEN
+    + "[+]  Time to Grab {} Posts  ::  ".format(str(posts_count))
+    + str(end - start)
+)
+
 print(
     Fore.LIGHTCYAN_EX
     + "[+]  Total Time Until Now  ::  "
