@@ -11,26 +11,6 @@ class Posts:
         posts_count: int = 100,
         POSTS_DOC_ID: str = "",
     ):
-        variables = {
-            "UFI2CommentsProvider_commentsKey": "CometSinglePageContentContainerFeedQuery",
-            "count": 3,
-            "displayCommentsContextEnableComment": "",
-            "displayCommentsContextIsAdPreview": "",
-            "displayCommentsContextIsAggregatedShare": "",
-            "displayCommentsContextIsStorySet": "",
-            "displayCommentsFeedbackContext": "",
-            "feedLocation": "PAGE_TIMELINE",
-            "feedbackSource": 22,
-            "focusCommentID": "",
-            "privacySelectorRenderLocation": "COMET_STREAM",
-            "renderLocation": "timeline",
-            "scale": 1,
-            "useDefaultActor": False,
-            "id": page_id,
-        }
-
-        encoded_variables = urllib.parse.quote(json.dumps(variables))
-
         payload = {
             "__a": "1",
             "fb_api_caller_class": "RelayModern",
