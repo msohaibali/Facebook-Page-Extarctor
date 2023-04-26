@@ -1,0 +1,280 @@
+[
+    {
+        "node": {
+            "id": "Y29tbWVudDo3MjY5NjI5NjM5NzMxMjcxXzEyNTMzNjI4MzIyMjE4Nzk=",
+            "legacy_fbid": "1253362832221879",
+            "author": {
+                "__typename": "User",
+                "id": "pfbid0DwXKXBTzR1C29Nc8xzxevzSuqBxrqYULwGZmZuvcZUMTp2hVuhpRV7MGwxBTsVvHl",
+                "name": "Muhammad Zaid",
+                "__isActor": "User",
+                "profile_picture_depth_0": {
+                    "uri": "https://scontent.fisb5-2.fna.fbcdn.net/v/t1.6435-1/33216322_118371529043693_3671614296917278720_n.jpg?stp=cp0_dst-jpg_p32x32&_nc_cat=108&ccb=1-7&_nc_sid=7206a8&_nc_ohc=A1GFCd7YqkoAX_9YoW3&_nc_ht=scontent.fisb5-2.fna&oh=00_AfAYMDXtYyOhSIdYbUzy4rJcv2ucgX6N1oqzS3RYCZpxSg&oe=64706FA4"
+                },
+                "profile_picture_depth_1": {
+                    "uri": "https://scontent.fisb5-2.fna.fbcdn.net/v/t1.6435-1/33216322_118371529043693_3671614296917278720_n.jpg?stp=cp0_dst-jpg_p24x24&_nc_cat=108&ccb=1-7&_nc_sid=7206a8&_nc_ohc=A1GFCd7YqkoAX_9YoW3&_nc_ht=scontent.fisb5-2.fna&oh=00_AfCEXWMCJeMR_90JhqlYwqmv1oeiQd_5cokRpbOnrati3g&oe=64706FA4"
+                },
+                "gender": "MALE",
+                "__isEntity": "User",
+                "url": "https://www.facebook.com/people/Muhammad-Zaid/pfbid0DwXKXBTzR1C29Nc8xzxevzSuqBxrqYULwGZmZuvcZUMTp2hVuhpRV7MGwxBTsVvHl/",
+                "work_info": null,
+                "is_verified": false,
+                "short_name": "Muhammad",
+                "subscribe_status": "CANNOT_SUBSCRIBE"
+            },
+            "is_author_weak_reference": false,
+            "created_time": 1682511962,
+            "spam_display_mode": "none",
+            "community_comment_signal_renderer": null,
+            "attachments": [],
+            "comment_menu_tooltip": null,
+            "should_show_comment_menu": false,
+            "comment_action_links_renderer": {
+                "__typename": "XFBCommentActionLinksRendererExperimental",
+                "comment": {
+                    "id": "Y29tbWVudDo3MjY5NjI5NjM5NzMxMjcxXzEyNTMzNjI4MzIyMjE4Nzk=",
+                    "commentActionLinks": [
+                        {
+                            "__typename": "XFBCommentTimeStampActionLink",
+                            "comment": {
+                                "id": "Y29tbWVudDo3MjY5NjI5NjM5NzMxMjcxXzEyNTMzNjI4MzIyMjE4Nzk=",
+                                "created_time": 1682511962,
+                                "url": "https://www.facebook.com/arynewsasia/posts/pfbid02QRpeqaoQAKqnwiJ75z1FupYaTBzZ3b18YWA3EDFncBJrXsjhFfUWMKEKGPN5Jm7yl?comment_id=1253362832221879"
+                            },
+                            "__module_operation_CometUFICommentActionLinksExperimental_renderer": {
+                                "__dr": "CometUFICommentTimeStampActionLink_commentActionLink$normalization.graphql"
+                            },
+                            "__module_component_CometUFICommentActionLinksExperimental_renderer": {
+                                "__dr": "CometUFICommentTimeStampActionLink.react"
+                            }
+                        }
+                    ]
+                },
+                "__module_operation_CometUFICommentActionLinks_comment": {
+                    "__dr": "CometUFICommentActionLinksExperimental_renderer$normalization.graphql"
+                },
+                "__module_component_CometUFICommentActionLinks_comment": {
+                    "__dr": "CometUFICommentActionLinksExperimental.react"
+                }
+            },
+            "preferred_body": {
+                "__typename": "TextWithEntities",
+                "delight_ranges": [],
+                "image_ranges": [],
+                "inline_style_ranges": [],
+                "aggregated_ranges": [],
+                "ranges": [],
+                "color_ranges": [],
+                "text": "Good",
+                "translation_type": "ORIGINAL"
+            },
+            "body_renderer": {
+                "__typename": "TextWithEntities",
+                "delight_ranges": [],
+                "image_ranges": [],
+                "inline_style_ranges": [],
+                "aggregated_ranges": [],
+                "ranges": [],
+                "color_ranges": [],
+                "text": "Good",
+                "__module_operation_CometUFICommentTextBodyRenderer_comment": {
+                    "__dr": "CometUFICommentBodyTextWithEntities_textWithEntities$normalization.graphql"
+                },
+                "__module_component_CometUFICommentTextBodyRenderer_comment": {
+                    "__dr": "CometUFICommentBodyTextWithEntities.react"
+                }
+            },
+            "comment_parent": null,
+            "is_declined_by_group_admin_assistant": false,
+            "is_gaming_video_comment": false,
+            "timestamp_in_video": null,
+            "translatability_for_viewer": {
+                "source_dialect": "en_XX"
+            },
+            "written_while_video_was_live": false,
+            "group_comment_info": null,
+            "bizweb_comment_info": null,
+            "has_constituent_badge": false,
+            "can_viewer_see_subsribe_button": false,
+            "can_see_constituent_badge_upsell": false,
+            "legacy_token": "7269629639731271_1253362832221879",
+            "parent_feedback": {
+                "id": "ZmVlZGJhY2s6NzI2OTYyOTYzOTczMTI3MQ==",
+                "share_fbid": "7269629639731271",
+                "political_figure_data": null,
+                "owning_profile": {
+                    "__typename": "Page",
+                    "name": "ARY News",
+                    "id": "485559268138376"
+                }
+            },
+            "question_and_answer_type": null,
+            "is_author_original_poster": false,
+            "is_viewer_comment_poster": false,
+            "is_author_bot": false,
+            "is_author_non_coworker": false,
+            "author_user_signals_renderer": null,
+            "author_badge_renderers": [],
+            "identity_badges_web": [],
+            "can_show_multiple_identity_badges": false,
+            "discoverable_identity_badges_web": [
+                {
+                    "grey_badge_asset": "/images/assets_DO_NOT_HARDCODE/facebook_icons/star-tip_filled_24_fds-spectrum-blue-gray.png",
+                    "dark_mode_badge_asset": "/images/assets_DO_NOT_HARDCODE/facebook_user_signals_icons/gaming-star-send-one_24_fds-yellow-60.png",
+                    "light_mode_badge_asset": "/images/assets_DO_NOT_HARDCODE/facebook_user_signals_icons/gaming-star-send-one_24_fds-yellow-50.png",
+                    "is_earned": false,
+                    "information_title": "Star sender",
+                    "information_description": "You will earn this badge by sending stars. The more you send, the higher level you will be on.",
+                    "is_enabled": true,
+                    "is_manageable": true,
+                    "serialized": "{\"type\":\"tipper\",\"actor_id\":100026125403817,\"target_id\":485559268138376,\"surface\":\"comment\",\"media_id\":7269629639731271,\"comment_id\":1253362832221879}",
+                    "identity_badge_type": "tipper",
+                    "information_button_enabled": false,
+                    "information_button_uri": "",
+                    "information_button_text": "Send Stars",
+                    "tier_info": {
+                        "__typename": "TipperBadgeTierInfo",
+                        "tier_name": "Star sender level 0",
+                        "stars_sent_this_week": 0,
+                        "stars_threshold_for_next_tier": 1
+                    }
+                },
+                {
+                    "grey_badge_asset": "/images/assets_DO_NOT_HARDCODE/facebook_icons/diamond_filled_24_fds-spectrum-blue-gray.png",
+                    "dark_mode_badge_asset": "/images/assets_DO_NOT_HARDCODE/facebook_user_signals_icons/gaming-diamond_24_fds-gray-90.png",
+                    "light_mode_badge_asset": "/images/assets_DO_NOT_HARDCODE/facebook_user_signals_icons/gaming-diamond_24_fds-unified-gray-25.png",
+                    "is_earned": false,
+                    "information_title": "What's a top fan?",
+                    "information_description": "Top fans are people who've earned a badge for most actively engaging with a Page or profile. The badge appears when they comment to recognise their efforts.",
+                    "is_enabled": true,
+                    "is_manageable": false,
+                    "serialized": "{\"type\":\"top_fan\",\"actor_id\":100026125403817,\"target_id\":485559268138376,\"surface\":\"comment\",\"media_id\":7269629639731271,\"comment_id\":1253362832221879}",
+                    "identity_badge_type": "top_fan",
+                    "information_button_enabled": false,
+                    "information_button_uri": "https://www.facebook.com/pg/485559268138376/community",
+                    "information_button_text": "See All Top Fans",
+                    "tier_info": null
+                },
+                {
+                    "grey_badge_asset": "/images/assets_DO_NOT_HARDCODE/facebook_icons/badge-star_filled_24_fds-spectrum-blue-gray.png",
+                    "dark_mode_badge_asset": "/images/assets_DO_NOT_HARDCODE/facebook_icons/badge-star_filled_24_fds-gray-60.png",
+                    "light_mode_badge_asset": "/images/assets_DO_NOT_HARDCODE/facebook_icons/badge-star_filled_24_fds-gray-60.png",
+                    "is_earned": false,
+                    "information_title": "Founding member",
+                    "information_description": "Only founding members get this badge.",
+                    "is_enabled": true,
+                    "is_manageable": false,
+                    "serialized": "{\"type\":\"founding_member\",\"actor_id\":100026125403817,\"target_id\":485559268138376,\"surface\":\"comment\",\"media_id\":7269629639731271,\"comment_id\":1253362832221879}",
+                    "identity_badge_type": "founding_member",
+                    "information_button_enabled": false,
+                    "information_button_uri": "https://www.facebook.com",
+                    "information_button_text": "Founding Member",
+                    "tier_info": null
+                }
+            ],
+            "user": {
+                "name": "Muhammad Zaid",
+                "profile_picture": {
+                    "uri": "https://scontent.fisb5-2.fna.fbcdn.net/v/t1.6435-1/33216322_118371529043693_3671614296917278720_n.jpg?stp=cp0_dst-jpg_p50x50&_nc_cat=108&ccb=1-7&_nc_sid=7206a8&_nc_ohc=A1GFCd7YqkoAX_9YoW3&_nc_ht=scontent.fisb5-2.fna&oh=00_AfBN9zfFf6vOW0tsQ0mLBFAAy_lxr-7jIfdcRlWDt0npnQ&oe=64706FA4"
+                },
+                "id": "pfbid0DwXKXBTzR1C29Nc8xzxevzSuqBxrqYULwGZmZuvcZUMTp2hVuhpRV7MGwxBTsVvHl"
+            },
+            "parent_post_story": {
+                "attachments": [
+                    {
+                        "media": {
+                            "__typename": "GenericAttachmentMedia",
+                            "id": "6157069351066908"
+                        }
+                    }
+                ],
+                "id": "UzpfSTQ4NTU1OTI2ODEzODM3Njo3MjY5NjI5NjM5NzMxMjcxOjcyNjk2Mjk2Mzk3MzEyNzE="
+            },
+            "work_ama_answer_status": null,
+            "work_knowledge_inline_annotation_comment_badge_renderer": null,
+            "business_comment_attributes": [],
+            "comment_author_additional_info_renderer": null,
+            "is_live_video_comment": false,
+            "can_viewer_disable_preview": false,
+            "translation_available_for_viewer": false,
+            "inline_survey_config": null,
+            "attached_story": null,
+            "helpful_comments_comment_eyebrow_renderer": null,
+            "comment_direct_parent": null,
+            "if_viewer_can_see_member_page_tooltip": null,
+            "feedback": {
+                "id": "ZmVlZGJhY2s6NzI2OTYyOTYzOTczMTI3MV8xMjUzMzYyODMyMjIxODc5",
+                "reactors": {
+                    "count": 0
+                },
+                "should_show_top_reactions": false,
+                "can_see_top_custom_reactions_on_comment": null,
+                "cannot_see_top_custom_reactions_on_comment": {
+                    "reactors": {
+                        "count": 0,
+                        "count_reduced": "0"
+                    },
+                    "viewer_feedback_reaction_info": null,
+                    "id": "ZmVlZGJhY2s6NzI2OTYyOTYzOTczMTI3MV8xMjUzMzYyODMyMjIxODc5",
+                    "top_reactions": {
+                        "edges": []
+                    },
+                    "__module_operation_CometUFICommentTopReactions_feedback__cannot_use_group_custom_reactions": {
+                        "__dr": "CometUFIClassicCommentTopReactions_feedback$normalization.graphql"
+                    },
+                    "__module_component_CometUFICommentTopReactions_feedback__cannot_use_group_custom_reactions": {
+                        "__dr": "CometUFIClassicCommentTopReactions.react"
+                    }
+                },
+                "can_viewer_comment": false,
+                "comment_composer_placeholder": "Reply to Muhammad Zaid\u2026",
+                "ask_me_anything_feedback_metadata": null,
+                "comment_count": {
+                    "total_count": 0
+                },
+                "toplevel_comment_count": {
+                    "count": 0
+                },
+                "threading_config": null,
+                "viewer_actor": null,
+                "is_vc_acting_as_page_or_profile_plus": false,
+                "subscription_target_id": "1253362832221879",
+                "display_comments": {
+                    "highlighted_comments": [],
+                    "comment_order": "TOPLEVEL",
+                    "expanded_sub_reply_parents": [],
+                    "is_initially_expanded": false,
+                    "page_size": 50,
+                    "reply_comment_order": "TOPLEVEL",
+                    "should_render_composer_preemptively": false,
+                    "after_count": 0,
+                    "before_count": 0,
+                    "count": 0,
+                    "edges": [],
+                    "page_info": {
+                        "end_cursor": null,
+                        "has_next_page": false,
+                        "has_previous_page": false,
+                        "start_cursor": null
+                    }
+                },
+                "url": "https://www.facebook.com/arynewsasia/posts/pfbid02QRpeqaoQAKqnwiJ75z1FupYaTBzZ3b18YWA3EDFncBJrXsjhFfUWMKEKGPN5Jm7yl?comment_id=1253362832221879",
+                "should_show_premium_award_giver_popover": false,
+                "is_eligible_for_comment_api": false
+            },
+            "is_disabled": false,
+            "work_answered_event_comment_renderer": null,
+            "comment_upper_badge_renderer": null,
+            "elevated_comment_data": null,
+            "body": {
+                "text": "Good",
+                "ranges": []
+            },
+            "is_markdown_enabled": false,
+            "reply_parent_comment": null,
+            "threading_depth": 0,
+            "__typename": "Comment"
+        },
+        "cursor": "AQHRe8ZOgnWBIlZJkcTN5yMfNTuDCM5HZtbAoxWUTVt1TlV-C6CMOzyRjTPiMNc8x-718glnXsAkfpYYdIk6Uf6xHA"
+    }
+]

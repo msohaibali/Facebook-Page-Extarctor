@@ -47,7 +47,7 @@
                             "editable_field": false,
                             "most_recent_day_weekly_schedule": null,
                             "blurb": "ARY News is a leading news channel of Pakistan. ARY News brings the breaking and latest news of Pakistan, world, business, technology, sports, and entertainment.",
-                            "privacy_policy_link": "https://l.facebook.com/l.php?u=https%3A%2F%2Farynews.tv%2Fterms%26conditions.pdf&h=AT2cho9nTCFFnM30dA2d2xaFsyBzJTzU2fI1YnSeZ2MAWD-dL4LX4sxaus9Xji-WP3pOqv3ghsKkGIoZ-vvfQpB2cNnmNIbKiQiWKKMZ_sdMaCGXCzwTIvPkHI22SPguIpbYUuAn1T3FMedZg3yayhizLNop0yeHw_Mk&s=1",
+                            "privacy_policy_link": "https://l.facebook.com/l.php?u=https%3A%2F%2Farynews.tv%2Fterms%26conditions.pdf&h=AT2IOHbVTd6_XFXtAv1RjvFgOpv25C_xR5SI0HzIztWN9ljabCk7ozfKWVN4asrw7WxW3LqflKpAYRG1i8ufPbZ2uXVNDXGm5usK22dVwQ36t-_bScOOF7o1WCVmD6DRvWZTCjuq2M5CJ4NewGKz&s=1",
                             "impressum": {
                                 "text": "ARY NEWS has been started with a vision of unbiased and professional reporting in an ethical and responsible way, ARY NEWS over decade showing its viewers authentic news/views and current affairs issues without any political affiliation or agenda. \n\nARY News is a 24-hour all-encompassing news service dedicated to delivering breaking news as well as political and business news from Around the World .ARY News is the most trusted television news source in the country. Owned by ARY Group of Companies, ARY is available in more than 50 million homes and dominates the news landscape, routinely notching the top ten programs in the genre.\n\nARY News is one of the finest News Channel of Pakistan which have a huge viewership in Pakistan and Abroad. Especially in UK and USA. ARY NEWS has a vast setup of News Bureaus and Correspondents within Pakistan and Abroad.\n\nAddress :\n6th Floor, Madina City Mall \nAbdullah Haroon Road, Saddar\nKarachi, Sindh, 74400\nPakistan\n\nContact : \nTel : +92-21-35621650\nFax : +92-21-3567314\n\nEmail :\n info@arynews.asia\n\nWebsite:\nwww.arynews.tv\n\n",
                                 "delight_ranges": [],
@@ -59,7 +59,7 @@
                                         "entity": {
                                             "__typename": "ExternalUrl",
                                             "__isEntity": "ExternalUrl",
-                                            "url": "https://l.facebook.com/l.php?u=http%3A%2F%2Fwww.arynews.tv%2F&h=AT0nWouuSRX0cSqstUEcNOrHgbFocrPkZaseA2r27PiLSRdxGxh-5HmOKjU-vgtofdenCXeAuWKxz7B6IFQU-owrcM35WY8mBP7QxF3CO7zXT5Sp7WwytjNRthWMS_bbxcajjjgsKn2oJPgp-HuLnls-mSJ2rTePk8CY&s=1",
+                                            "url": "https://l.facebook.com/l.php?u=http%3A%2F%2Fwww.arynews.tv%2F&h=AT0TfojqZc1peG96zyomwJgZ03ZaLwj_ch5I6L0Sw-9SOik4adeo3Ug8rZe1ZI3sXpohynz36upCJWa7hPCeCDjqIqGiDKzylhuDDvNBYJm1svzk1TBawNyxxBildHAHTQNsvjGcCRsiXIwdgKte&s=1",
                                             "external_url": "http://www.arynews.tv/",
                                             "__isWebLinkable": "ExternalUrl",
                                             "web_link": {
@@ -68,7 +68,7 @@
                                                 "fbclid": null,
                                                 "lynx_mode": "ASYNCLAZY"
                                             },
-                                            "mobileUrl": "https://lm.facebook.com/l.php?u=http%3A%2F%2Fwww.arynews.tv%2F&h=AT3hxw_GmtaS7zXhXa7ag5C30Fzd-nwqTNJducnUoU8txzgEmOoemnsPhhzoWF9R0mUC4Q3NhxiLCQJug88qFV_S68E6ap8ChYkY-Wua0Pr0XJlH1tJLH0XtWWIiqJ7uUmOO2XRilgpGSS7ZNrtR6ebn_cGaUgwR_7H3&s=1",
+                                            "mobileUrl": "https://lm.facebook.com/l.php?u=http%3A%2F%2Fwww.arynews.tv%2F&h=AT2S2YwFT-QLQxA3CCgbJQD8x68fV6Ry7mZbq40r9LZUN-wvnr92HlU9V3Tffa_V15qn8SxPW4thPPMOq5GoMlzhIbdyxozacSGGyF9pIo1PMEz3Q6pqSRALk55LJCFoK6IhKumWfZlZopZPEGRq&s=1",
                                             "__isNode": "ExternalUrl",
                                             "id": "NjQyMTgzOTU5MjA4MTA3Omh0dHBcYS8vd3d3LmFyeW5ld3MudHYvOjo6Og=="
                                         },
@@ -159,9 +159,9 @@
                             }
                         },
                         "page_likers": {
-                            "global_likers_count": 18944814
+                            "global_likers_count": 18953758
                         },
-                        "follower_count": 25243432,
+                        "follower_count": 25280974,
                         "were_here_count": 0,
                         "friends_who_like": {
                             "count": 0,

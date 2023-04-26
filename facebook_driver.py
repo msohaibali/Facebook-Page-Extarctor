@@ -1,6 +1,7 @@
 import json
 from About import About
 from Posts import Posts
+from Comments import Comments
 from colorama import Fore, init
 from datetime import datetime as dt
 
@@ -47,16 +48,78 @@ start = dt.now()
 # Grab Page Posts
 posts_count = 10
 all_posts = Posts.get_posts(
-    page_id=page_id, posts_count=posts_count, POSTS_DOC_ID=config.get("POSTS_DOC_ID")
+    page_id=page_id,
+    posts_count=posts_count,
+    POSTS_DOC_ID=config.get(
+        "POSTS_DOC_ID",
+    ),
 )
+
 with open(page_id + "_page_posts.json", "w") as fl:
     json.dump(all_posts, fl)
+
 end = dt.now()
 print(
     Fore.GREEN
     + "[+]  Time to Grab {} Posts  ::  ".format(str(posts_count))
     + str(end - start)
 )
+
+
+# Grab Posts Comments
+posts_count_for_comments = 2
+start = dt.now()
+for post in all_posts[:posts_count_for_comments]:
+    all_comments = list()
+    post_id = post.get("node").get("post_id")
+
+    post_comments = Comments.get_comments(post_id=post_id)
+    while len(all_comments) <= COMMENTORS_LIMIT:
+        if post_comments:
+            comments_list = (
+                post_comments.get("node").get("display_comments").get("edges")
+            )
+            all_comments.extend(comments_list)
+
+            has_next_page = (
+                post_comments.get("node")
+                .get("display_comments")
+                .get("page_info")
+                .get("has_next_page")
+            )
+
+            next_cursor = (
+                post_comments.get("node")
+                .get("display_comments")
+                .get("page_info")
+                .get("end_cursor")
+            )
+
+            if has_next_page:
+                post_comments = Comments.get_comments(
+                    post_id=post_id,
+                    next_cursor=next_cursor,
+                )
+
+            else:
+                break
+
+        else:
+            break
+
+    with open(post_id + "_post_comments.json", "w", encoding="utf-8") as fl:
+        json.dump(all_comments, fl)
+
+end = dt.now()
+
+print(
+    Fore.GREEN
+    + "[+]  Time to Grab {} Comments of {} Posts  ::  ".format(
+        str(COMMENTORS_LIMIT), str(posts_count_for_comments)
+    )
+    + str(end - start)
+)
+
 
 print(
     Fore.LIGHTCYAN_EX
