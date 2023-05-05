@@ -53,6 +53,7 @@ class Posts:
         while page_info.get("has_next_page") and len(final_posts) <= int(
             posts_count,
         ):
+            print("[{}]  Posts Until Now".format(str(len(final_posts))))
             payload = {
                 "__a": "1",
                 "fb_api_caller_class": "RelayModern",
