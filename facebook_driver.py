@@ -1,13 +1,16 @@
 import json
 from About import About
 from Posts import Posts
-from Comments import Comments
+
+# from Comments import Comments
 from colorama import Fore, init
 from datetime import datetime as dt
+from ProxiesGrabber import ProxiesGrabber
 
 
 first_start = dt.now()
 init()
+
 # Read Configuration as global variable
 with open("config.json") as fl:
     config = json.loads(fl.read())
@@ -26,10 +29,17 @@ POSTS_SIZE = config["POSTS_SIZE"]
 UK_SERVER_STATUS = config["UK_SERVER"]
 PHOTOS_LIMIT = config["PHOTOS_LIMIT"]
 ACCESS_TOKEN = config["ACCESS_TOKEN"]
+
+LIST_PROXIES_URL = config["LIST_PROXIES_URL"]
+WEBSHARE_TOKEN = config["WEBSHARE_TOKEN"]
 # CONFIGURATIONS
 
+PROXIES_LIST = ProxiesGrabber.get_proxies_list(
+    token=WEBSHARE_TOKEN, proxies_url=LIST_PROXIES_URL
+)
 # page_id = "485559268138376"  # ARYNEWS
-page_id = "111331428916358"  # GEONEWS
+# page_id = "100064592176210"  # BOLNEWS
+page_id = "111331428916358"  # GEONEWSURDU
 
 
 start = dt.now()
@@ -38,6 +48,7 @@ start = dt.now()
 about_response = About.page_about(
     ABOUT_DOC_ID=config.get("ABOUT_DOC_ID"),
     page_id=page_id,
+    PROXIES_LIST=PROXIES_LIST,
 )
 with open(page_id + "_page_about.json", "w") as fl:
     json.dump(about_response, fl)
@@ -47,13 +58,14 @@ print(Fore.GREEN + "[+]  Time to Grab About  ::  " + str(end - start))
 
 start = dt.now()
 # Grab Page Posts
-posts_count = 200
+posts_count = 500
 all_posts = Posts.get_posts(
     page_id=page_id,
     posts_count=posts_count,
     POSTS_DOC_ID=config.get(
         "POSTS_DOC_ID",
     ),
+    PROXIES_LIST=PROXIES_LIST,
 )
 
 with open(page_id + "_page_posts.json", "w") as fl:

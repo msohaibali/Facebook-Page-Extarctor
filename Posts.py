@@ -1,6 +1,6 @@
 import json
 import requests
-import urllib.parse
+from random import randint
 
 
 class Posts:
@@ -10,6 +10,7 @@ class Posts:
         page_id: str = "",
         posts_count: int = 100,
         POSTS_DOC_ID: str = "",
+        PROXIES_LIST: list = [],
     ):
         payload = {
             "__a": "1",
@@ -22,9 +23,11 @@ class Posts:
             "doc_id": POSTS_DOC_ID,
         }
 
+        random_num = randint(0, len(PROXIES_LIST) - 1)
         response = requests.post(
             "https://www.facebook.com/api/graphql/",
             data=payload,
+            proxies=PROXIES_LIST[random_num],
         )
 
         data = response.text
@@ -67,8 +70,11 @@ class Posts:
                 "doc_id": POSTS_DOC_ID,
             }
 
+            random_num = randint(0, len(PROXIES_LIST) - 1)
             response = requests.post(
-                "https://www.facebook.com/api/graphql/", data=payload
+                "https://www.facebook.com/api/graphql/",
+                data=payload,
+                proxies=PROXIES_LIST[random_num],
             )
             data = response.text
             posts = data.split("\r")
@@ -101,5 +107,4 @@ class Posts:
 #     POSTS_DOC_ID=POSTS_DOC_ID,
 # )
 
-# breakpoint()
 # print("DONE!")

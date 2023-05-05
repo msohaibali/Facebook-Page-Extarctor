@@ -38,5 +38,7 @@
     "COMMENTORS_LIMIT": 200,
     "UK_SERVER": false,
     "COMMENTS_VIA_INSTANCE": true,
-    "ACCESS_TOKEN": "1716660955257637%7Cafa3f38c55f24c73b177afc962969b15"
+    "ACCESS_TOKEN": "1716660955257637%7Cafa3f38c55f24c73b177afc962969b15",
+    "WEBSHARE_TOKEN": "z1d912p9wgzakaivpw3cvjf9fds8vd6dqanwwksh",
+    "LIST_PROXIES_URL": "https://proxy.webshare.io/api/v2/proxy/list/?mode=direct&page=1&page_size=100"
 }

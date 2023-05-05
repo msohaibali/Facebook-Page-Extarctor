@@ -1,9 +1,14 @@
 import requests
+from random import randint
 
 
 class About:
     @staticmethod
-    def page_about(page_id: str = "", ABOUT_DOC_ID: str = ""):
+    def page_about(
+        page_id: str = "",
+        ABOUT_DOC_ID: str = "",
+        PROXIES_LIST: list = [],
+    ):
         headers = {
             "authority": "www.facebook.com",
             "accept": "*/*",
@@ -30,10 +35,12 @@ class About:
             "doc_id": ABOUT_DOC_ID,
         }
 
+        random_num = randint(0, len(PROXIES_LIST) - 1)
         response = requests.post(
             "https://www.facebook.com/api/graphql/",
             headers=headers,
             data=data,
+            proxies=PROXIES_LIST[random_num],
         )
 
         if response.ok:
