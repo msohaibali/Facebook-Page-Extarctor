@@ -58,7 +58,7 @@ print(Fore.GREEN + "[+]  Time to Grab About  ::  " + str(end - start))
 
 start = dt.now()
 # Grab Page Posts
-posts_count = 500
+posts_count = 50
 all_posts = Posts.get_posts(
     page_id=page_id,
     posts_count=posts_count,

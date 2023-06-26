@@ -1,6 +1,9 @@
+import re
 import json
 import requests
+import threading
 from random import randint
+from ViewCounts import get_views_counts
 
 
 class Posts:
@@ -12,6 +15,7 @@ class Posts:
         POSTS_DOC_ID: str = "",
         PROXIES_LIST: list = [],
     ):
+        threads_list = list()
         payload = {
             "__a": "1",
             "fb_api_caller_class": "RelayModern",
@@ -44,6 +48,19 @@ class Posts:
             "edges",
             [],
         )
+        for single_edge in post_edges:
+            post_id = single_edge["node"]["post_id"]
+            print("[+]  Post Id  ::  ", post_id)
+            if post_id:
+                random_num = randint(0, len(PROXIES_LIST) - 1)
+                random_proxy = PROXIES_LIST[random_num]
+
+                viewer_thread = threading.Thread(
+                    target=get_views_counts,
+                    args=(single_edge, post_id, random_proxy),
+                )
+                viewer_thread.start()
+                threads_list.append(viewer_thread)
 
         page_info = posts_json["data"]["node"]["timeline_feed_units"].get(
             "page_info", {}
@@ -88,11 +105,29 @@ class Posts:
             post_edges = posts_json["data"]["node"]["timeline_feed_units"].get(
                 "edges", []
             )
+            for single_edge in post_edges:
+                post_id = single_edge["node"]["post_id"]
+                if post_id:
+                    print("[+]  Post Id  ::  ", post_id)
+                    random_num = randint(0, len(PROXIES_LIST) - 1)
+                    random_proxy = PROXIES_LIST[random_num]
+
+                    viewer_thread = threading.Thread(
+                        target=get_views_counts,
+                        args=(single_edge, post_id, random_proxy),
+                    )
+                    viewer_thread.start()
+                    threads_list.append(viewer_thread)
+
             page_info = posts_json["data"]["node"]["timeline_feed_units"].get(
                 "page_info", {}
             )
             end_cursor = page_info.get("end_cursor", "")
             final_posts.extend(post_edges)
+
+        if threads_list:
+            for single_thread in threads_list:
+                single_thread.join()
 
         return final_posts
 
