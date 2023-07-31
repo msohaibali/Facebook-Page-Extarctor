@@ -3,7 +3,7 @@ from About import About
 from Posts import Posts
 from fastapi import FastAPI
 
-# from typing import Union
+from typing import Union
 
 # from Comments import Comments
 from colorama import Fore, init
@@ -43,11 +43,18 @@ WEBSHARE_TOKEN = config["WEBSHARE_TOKEN"]
 # page_id = "111331428916358"  # GEONEWSURDU
 
 
-def page_data(page_id: str = "111331428916358"):
-    # Get Proxies List
-    PROXIES_LIST = ProxiesGrabber.get_proxies_list(
-        token=WEBSHARE_TOKEN, proxies_url=LIST_PROXIES_URL
-    )
+# Get Proxies List
+PROXIES_LIST = ProxiesGrabber.get_proxies_list(
+    token=WEBSHARE_TOKEN, proxies_url=LIST_PROXIES_URL
+)
+
+
+def page_data(page_id: str = "111331428916358", refresh_proxies: bool = False):
+    if refresh_proxies:
+        # Get Proxies List
+        PROXIES_LIST = ProxiesGrabber.get_proxies_list(
+            token=WEBSHARE_TOKEN, proxies_url=LIST_PROXIES_URL
+        )
 
     start = dt.now()
 
@@ -173,7 +180,10 @@ def read_root():
 
 
 @app.get("/get_data/{page_id}")
-def get_page_data(page_id: str = None):
+def get_page_data(
+    page_id: str = None,
+    refresh_proxies: Union[str, None] = None,
+):
     if not page_id:
         return {
             "page_id": page_id,
@@ -182,7 +192,14 @@ def get_page_data(page_id: str = None):
         }
 
     try:
-        page_data(page_id=page_id)
+        refresh_proxies = (
+            json.loads(
+                refresh_proxies,
+            )
+            if refresh_proxies
+            else False
+        )
+        page_data(page_id=page_id, refresh_proxies=refresh_proxies)
         return {"page_id": page_id, "status": "Data Stored"}
 
     except Exception as ex:
