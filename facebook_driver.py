@@ -55,6 +55,8 @@ def page_data(page_id: str = "111331428916358", refresh_proxies: bool = False):
         PROXIES_LIST = ProxiesGrabber.get_proxies_list(
             token=WEBSHARE_TOKEN, proxies_url=LIST_PROXIES_URL
         )
+    else:
+        PROXIES_LIST = PROXIES_LIST
 
     start = dt.now()
 
