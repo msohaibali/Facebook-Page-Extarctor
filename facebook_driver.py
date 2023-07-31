@@ -1,11 +1,15 @@
 import json
 from About import About
 from Posts import Posts
+from fastapi import FastAPI
+
+# from typing import Union
 
 # from Comments import Comments
 from colorama import Fore, init
 from datetime import datetime as dt
 from ProxiesGrabber import ProxiesGrabber
+from BucketConnector import BucketConnector
 
 
 first_start = dt.now()
@@ -34,112 +38,152 @@ LIST_PROXIES_URL = config["LIST_PROXIES_URL"]
 WEBSHARE_TOKEN = config["WEBSHARE_TOKEN"]
 # CONFIGURATIONS
 
-PROXIES_LIST = ProxiesGrabber.get_proxies_list(
-    token=WEBSHARE_TOKEN, proxies_url=LIST_PROXIES_URL
-)
-# page_id = "485559268138376"  # ARYNEWS
-# page_id = "100064592176210"  # BOLNEWS
-page_id = "111331428916358"  # GEONEWSURDU
+# # page_id = "485559268138376"  # ARYNEWS
+# # page_id = "100064592176210"  # BOLNEWS
+# page_id = "111331428916358"  # GEONEWSURDU
 
 
-start = dt.now()
-
-# Grab About Data of Page
-about_response = About.page_about(
-    ABOUT_DOC_ID=config.get("ABOUT_DOC_ID"),
-    page_id=page_id,
-    PROXIES_LIST=PROXIES_LIST,
-)
-with open(page_id + "_page_about.json", "w") as fl:
-    json.dump(about_response, fl)
-end = dt.now()
-print(Fore.GREEN + "[+]  Time to Grab About  ::  " + str(end - start))
-
-
-start = dt.now()
-# Grab Page Posts
-posts_count = 50
-all_posts = Posts.get_posts(
-    page_id=page_id,
-    posts_count=posts_count,
-    POSTS_DOC_ID=config.get(
-        "POSTS_DOC_ID",
-    ),
-    PROXIES_LIST=PROXIES_LIST,
-)
-
-with open(page_id + "_page_posts.json", "w") as fl:
-    json.dump(all_posts, fl)
-
-end = dt.now()
-print(
-    Fore.GREEN
-    + "[+]  Time to Grab {} Posts  ::  ".format(str(posts_count))
-    + str(end - start)
-)
-
-
-# # Grab Posts Comments
-# posts_count_for_comments = 2
-# start = dt.now()
-# for post in all_posts[:posts_count_for_comments]:
-#     all_comments = list()
-#     post_id = post.get("node").get("post_id")
-
-#     post_comments = Comments.get_comments(post_id=post_id)
-#     while len(all_comments) <= COMMENTORS_LIMIT:
-#         if post_comments:
-#             comments_list = (
-#                 post_comments.get("node").get("display_comments").get("edges")
-#             )
-#             all_comments.extend(comments_list)
-
-#             has_next_page = (
-#                 post_comments.get("node")
-#                 .get("display_comments")
-#                 .get("page_info")
-#                 .get("has_next_page")
-#             )
-
-#             next_cursor = (
-#                 post_comments.get("node")
-#                 .get("display_comments")
-#                 .get("page_info")
-#                 .get("end_cursor")
-#             )
-
-#             if has_next_page:
-#                 post_comments = Comments.get_comments(
-#                     post_id=post_id,
-#                     next_cursor=next_cursor,
-#                 )
-
-#             else:
-#                 break
-
-#         else:
-#             break
-
-#     with open(post_id + "_post_comments.json", "w", encoding="utf-8") as fl:
-#         json.dump(all_comments, fl)
-
-# end = dt.now()
-
-# print(
-#     Fore.GREEN
-#     + "[+]  Time to Grab {} Comments of {} Posts  ::  ".format(
-#         str(COMMENTORS_LIMIT), str(posts_count_for_comments)
-#     )
-#     + str(end - start)
-# )
-
-
-print(
-    Fore.LIGHTCYAN_EX
-    + "[+]  Total Time Until Now  ::  "
-    + str(
-        end - first_start,
+def page_data(page_id: str = "111331428916358"):
+    # Get Proxies List
+    PROXIES_LIST = ProxiesGrabber.get_proxies_list(
+        token=WEBSHARE_TOKEN, proxies_url=LIST_PROXIES_URL
     )
-)
 
-print("Done")
+    start = dt.now()
+
+    # Grab About Data of Page
+    about_response = About.page_about(
+        ABOUT_DOC_ID=config.get("ABOUT_DOC_ID"),
+        page_id=page_id,
+        PROXIES_LIST=PROXIES_LIST,
+    )
+    # with open(page_id + "_page_about.json", "w") as fl:
+    #     json.dump(about_response, fl)
+    print("[*]  Dumping About Data to S3!")
+    BucketConnector.store_data(
+        data=about_response,
+        bucket_name="fb-page-bucket",
+        category_name="About",
+        folder_name=page_id,
+        about_data=True,
+    )
+    print("[+]  About Data Successfully dumped to S3!")
+
+    end = dt.now()
+    print(Fore.GREEN + "[+]  Time to Grab About  ::  " + str(end - start))
+
+    start = dt.now()
+
+    # Grab Page Posts
+    posts_count = 10
+    all_posts = Posts.get_posts(
+        page_id=page_id,
+        posts_count=posts_count,
+        POSTS_DOC_ID=config.get(
+            "POSTS_DOC_ID",
+        ),
+        PROXIES_LIST=PROXIES_LIST,
+    )
+
+    # with open(page_id + "_page_posts.json", "w") as fl:
+    #     json.dump(all_posts, fl)
+
+    print("[*]  Dumping Posts Data to S3!")
+    BucketConnector.store_data(
+        data=all_posts,
+        bucket_name="fb-page-bucket",
+        category_name="Posts",
+        folder_name=page_id,
+    )
+    print("[+]  Posts Data Successfully dumped to S3!")
+
+    end = dt.now()
+    print(
+        Fore.GREEN
+        + "[+]  Time to Grab {} Posts  ::  ".format(str(posts_count))
+        + str(end - start)
+    )
+
+    # # Grab Posts Comments
+    # posts_count_for_comments = 2
+    # start = dt.now()
+    # for post in all_posts[:posts_count_for_comments]:
+    #     all_comments = list()
+    #     post_id = post.get("node").get("post_id")
+
+    #     post_comments = Comments.get_comments(post_id=post_id)
+    #     while len(all_comments) <= COMMENTORS_LIMIT:
+    #         if post_comments:
+    #             comments_list = (
+    #                 post_comments.get("node").get("display_comments").get("edges")
+    #             )
+    #             all_comments.extend(comments_list)
+
+    #             has_next_page = (
+    #                 post_comments.get("node")
+    #                 .get("display_comments")
+    #                 .get("page_info")
+    #                 .get("has_next_page")
+    #             )
+
+    #             next_cursor = (
+    #                 post_comments.get("node")
+    #                 .get("display_comments")
+    #                 .get("page_info")
+    #                 .get("end_cursor")
+    #             )
+
+    #             if has_next_page:
+    #                 post_comments = Comments.get_comments(
+    #                     post_id=post_id,
+    #                     next_cursor=next_cursor,
+    #                 )
+
+    #             else:
+    #                 break
+
+    #         else:
+    #             break
+
+    # end = dt.now()
+
+    # print(
+    #     Fore.GREEN
+    #     + "[+]  Time to Grab {} Comments of {} Posts  ::  ".format(
+    #         str(COMMENTORS_LIMIT), str(posts_count_for_comments)
+    #     )
+    #     + str(end - start)
+    # )
+
+    print(
+        Fore.LIGHTCYAN_EX
+        + "[+]  Total Time Until Now  ::  "
+        + str(
+            end - first_start,
+        )
+    )
+
+
+app = FastAPI()
+
+
+@app.get("/")
+def read_root():
+    return {"api_version": "1.0"}
+
+
+@app.get("/get_data/{page_id}")
+def get_page_data(page_id: int = None):
+    if not page_id:
+        return {
+            "page_id": page_id,
+            "status": "error",
+            "error": "Page ID required",
+        }
+
+    try:
+        page_data(page_id=page_id)
+        return {"page_id": page_id, "status": "Data Stored"}
+
+    except Exception as ex:
+        return {"page_id": page_id, "status": "Error", "error": str(ex)}
