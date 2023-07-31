@@ -173,7 +173,7 @@ def read_root():
 
 
 @app.get("/get_data/{page_id}")
-def get_page_data(page_id: int = None):
+def get_page_data(page_id: str = None):
     if not page_id:
         return {
             "page_id": page_id,
