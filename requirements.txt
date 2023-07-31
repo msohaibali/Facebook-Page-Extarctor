@@ -3,3 +3,5 @@ boto3
 fastapi
 uvicorn
 bs4
+botocore
+python-dotenv
