@@ -28,7 +28,7 @@ class BucketConnector:
         bucket_name: str,
         category_name: str,
         folder_name: str,
-        about_data: False,
+        about_data: bool = False,
     ):
         file_name = str(datetime.now().date()) + ".json"
         client = BucketConnector.get_client()
