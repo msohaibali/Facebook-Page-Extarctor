@@ -53,12 +53,13 @@ def page_data(
     page_id: str = "111331428916358",
     refresh_proxies: bool = False,
     PROXIES_LIST: list = PROXIES_LIST,
+    days_limit: int = 3,
 ):
-    if refresh_proxies:
-        # Get Proxies List
-        PROXIES_LIST = ProxiesGrabber.get_proxies_list(
-            token=WEBSHARE_TOKEN, proxies_url=LIST_PROXIES_URL
-        )
+    # if refresh_proxies:
+    # Get Proxies List
+    PROXIES_LIST = ProxiesGrabber.get_proxies_list(
+        token=WEBSHARE_TOKEN, proxies_url=LIST_PROXIES_URL
+    )
 
     start = dt.now()
 
@@ -86,14 +87,15 @@ def page_data(
     start = dt.now()
 
     # Grab Page Posts
-    posts_count = 10
+    # posts_count = 10
     all_posts = Posts.get_posts(
         page_id=page_id,
-        posts_count=posts_count,
+        # posts_count=posts_count,
         POSTS_DOC_ID=config.get(
             "POSTS_DOC_ID",
         ),
         PROXIES_LIST=PROXIES_LIST,
+        days_limit=int(days_limit),
     )
 
     # with open(page_id + "_page_posts.json", "w") as fl:
@@ -111,7 +113,7 @@ def page_data(
     end = dt.now()
     print(
         Fore.GREEN
-        + "[+]  Time to Grab {} Posts  ::  ".format(str(posts_count))
+        + "[+]  Time to Grab {} Posts  ::  ".format(str(len(all_posts)))
         + str(end - start)
     )
 
@@ -183,10 +185,11 @@ def read_root():
     return {"api_version": "1.0"}
 
 
-@app.get("/get_data/{page_id}")
+@app.get("/get_data")
 def get_page_data(
     page_id: str = None,
-    refresh_proxies: Union[str, None] = None,
+    refresh_proxies: Union[str, None] = "true",
+    days_limit: Union[str, None] = "3",
 ):
     if not page_id:
         return {
@@ -203,7 +206,11 @@ def get_page_data(
             if refresh_proxies
             else False
         )
-        page_data(page_id=page_id, refresh_proxies=refresh_proxies)
+        page_data(
+            page_id=page_id,
+            refresh_proxies=refresh_proxies,
+            days_limit=days_limit,
+        )
         return {"page_id": page_id, "status": "Data Stored"}
 
     except Exception as ex:
