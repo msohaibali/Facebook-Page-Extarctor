@@ -89,6 +89,7 @@ def page_data(
     # Grab Page Posts
     # posts_count = 10
     all_posts = Posts.get_posts(
+        final_posts=[],
         page_id=page_id,
         # posts_count=posts_count,
         POSTS_DOC_ID=config.get(
