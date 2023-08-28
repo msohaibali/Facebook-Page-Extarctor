@@ -10,16 +10,26 @@ load_dotenv()
 
 class BucketConnector:
     @staticmethod
-    def get_client():
+    def get_client(minio: bool = False):
         session = boto3.session.Session()
-        client = session.client(
-            "s3",
-            config=botocore.config.Config(s3={"addressing_style": "virtual"}),
-            region_name="sfo3",
-            endpoint_url="https://sfo3.digitaloceanspaces.com",
-            aws_access_key_id=os.getenv("SPACES_KEY"),
-            aws_secret_access_key=os.getenv("SPACES_SECRET"),
-        )
+        if not minio:
+            client = session.client(
+                "s3",
+                config=botocore.config.Config(s3={"addressing_style": "virtual"}),
+                region_name="sfo3",
+                endpoint_url="https://sfo3.digitaloceanspaces.com",
+                aws_access_key_id=os.getenv("SPACES_KEY"),
+                aws_secret_access_key=os.getenv("SPACES_SECRET"),
+            )
+        else:
+            client = session.client(
+                "s3",
+                endpoint_url=os.getenv("ENDPOINT"),
+                aws_access_key_id=os.getenv("SPACES_KEY"),
+                aws_secret_access_key=os.getenv("SPACES_SECRET"),
+                config=boto3.session.Config(signature_version="s3v4"),
+            )
+
         return client
 
     @staticmethod
@@ -31,7 +41,7 @@ class BucketConnector:
         about_data: bool = False,
     ):
         file_name = str(datetime.now().date()) + ".json"
-        client = BucketConnector.get_client()
+        client = BucketConnector.get_client(minio=True)
         try:
             if not about_data:
                 client.put_object(
