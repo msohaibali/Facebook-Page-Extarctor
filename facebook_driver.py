@@ -10,7 +10,7 @@ from colorama import Fore, init
 from datetime import datetime as dt
 from ProxiesGrabber import ProxiesGrabber
 from BucketConnector import BucketConnector
-
+from Parse_dump_json import ParseJson
 
 first_start = dt.now()
 init()
@@ -99,6 +99,10 @@ def page_data(
         days_limit=int(days_limit),
     )
 
+    try:
+        ParseJson.parseJson(data=all_posts)
+    except Exception as e:
+        print(e)
     # with open(page_id + "_page_posts.json", "w") as fl:
     #     json.dump(all_posts, fl)
 
