@@ -186,7 +186,11 @@ class ParseJson:
                     # Connect to the SQL Server
                     connection = pyodbc.connect(connection_string)
                     cursor = connection.cursor()
-
+                    try:
+                        values_to_delete = [-1, '-1'] 
+                        final_df = df[~df['id'].isin(values_to_delete)]
+                    except Exception as e:
+                        print(e)
                     # Insert data into the table
                     query = f'''
                             INSERT INTO dd_stg.dbo.fb_daily_post_raw_data (
@@ -197,7 +201,7 @@ class ParseJson:
                             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)
                         '''
 
-                    for _, row in df.iterrows():
+                    for _, row in final_df.iterrows():
                         values = tuple(row)
                         cursor.execute(query, values)
                         connection.commit()

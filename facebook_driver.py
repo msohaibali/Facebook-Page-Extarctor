@@ -100,6 +100,7 @@ def page_data(
     )
 
     try:
+        print('[*]  Dumping Posts Data to Database!')
         ParseJson.parseJson(data=all_posts)
     except Exception as e:
         print(e)
