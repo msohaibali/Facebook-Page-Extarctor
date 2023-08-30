@@ -188,8 +188,9 @@ class ParseJson:
                     cursor = connection.cursor()
                     try:
                         values_to_delete = [-1, '-1'] 
-                        final_df = df[~df['id'].isin(values_to_delete)]
+                        final_df = df[~df['post_id'].isin(values_to_delete)]
                     except Exception as e:
+                        final_df = df
                         print(e)
                     # Insert data into the table
                     query = f'''
