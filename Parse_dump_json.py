@@ -141,14 +141,16 @@ class ParseJson:
                     df['share_count'] = df['share_count'].str.replace('لاکھ', 'L')
 
                     def convert_to_number(value):
-                        #print(value)
-                        if 'K' in value:
-                            return float(value.replace('K', '')) * 1000
-                        elif 'L' in value:
-                            return float(value.replace('L', '')) * 100000
-                        else:
-                            return float(value)
-    
+                        try:
+                            if 'K' in value:
+                                return float(value.replace('K', '')) * 1000
+                            elif 'L' in value:
+                                return float(value.replace('L', '')) * 100000
+                            else:
+                                return float(value)
+                        except:
+                            return value
+
                     # Apply the function to the 'count' column
                     df['view_count'] = df['view_count'].apply(convert_to_number)
                     df['like_count'] = df['like_count'].apply(convert_to_number)
